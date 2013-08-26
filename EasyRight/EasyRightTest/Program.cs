@@ -31,8 +31,22 @@ namespace EasyRightTest
             user3.PropertiesData["IsMarried"] = true;
             Console.WriteLine(jsSerializer.Serialize(user3));
 
+            List<User> users = new List<User>();
 
+            for (int i = 0; i < 10; i++)
+            {
+                User tempUser = new User() { Id = Guid.NewGuid(), Name = "test" + i, Password = "test" + i, Email = i + "test@ddd.com" };
+                tempUser.PropertiesData["Age"] = i+24;
+                tempUser.PropertiesData["Address"] = Guid.NewGuid().ToString();
+                tempUser.PropertiesData["IsMarried"] = true;
 
+                users.Add(tempUser);
+            }
+
+            string jsonUsers = jsSerializer.Serialize(users);
+            Console.WriteLine(jsonUsers);
+
+            var deserializeUsers = jsSerializer.Deserialize(jsonUsers,typeof(List<User>));
 
             Console.ReadLine();
         }
@@ -63,6 +77,7 @@ namespace EasyRightTest
         public Dictionary<string, object> PropertiesData
         {
             get { return this.propertiesData; }
+            set { this.propertiesData = value; }
         }
 
     }
