@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyRight", "EasyRight\EasyRight.csproj", "{39869177-92A7-4F2D-875B-848128379980}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyRightTest", "EasyRightTest\EasyRightTest.csproj", "{6A4023EB-1430-443B-AD35-E58C09D3A24E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{39869177-92A7-4F2D-875B-848128379980}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39869177-92A7-4F2D-875B-848128379980}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39869177-92A7-4F2D-875B-848128379980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A4023EB-1430-443B-AD35-E58C09D3A24E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A4023EB-1430-443B-AD35-E58C09D3A24E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A4023EB-1430-443B-AD35-E58C09D3A24E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A4023EB-1430-443B-AD35-E58C09D3A24E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
