@@ -7,5 +7,16 @@ namespace EasyRight.Models
 {
     public class ERRole
     {
+        public Guid Id { get; set; }
+
+        public string Name { get; set; }
+
+        public string Descrption { get; set; }
+
+        public IList<EROperation> Operations { get; set; }
+
+        public IList<ERUser> Users { get; set; }
+
+        public bool IsEnabled { get; set; }
     }
 }
