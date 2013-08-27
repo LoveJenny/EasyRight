@@ -11,7 +11,7 @@ namespace EasyRight.Models
         private ERRepositry()
         { }
 
-        public static ERRepositry _instance = new ERRepositry();
+        private static ERRepositry _instance = new ERRepositry();
 
         public static ERRepositry Instance
         {
@@ -24,6 +24,7 @@ namespace EasyRight.Models
 
         public void AddUser(ERUser user)
         {
+            user.Id = Guid.NewGuid();
             using (var odb = OdbFactory.Open(dbFileName))
             {
                 odb.Store(user);
@@ -32,8 +33,16 @@ namespace EasyRight.Models
 
         public void UpdateUser(ERUser user)
         {
-            DeleteUser(user);
-            AddUser(user);
+            using (var odb = OdbFactory.Open(dbFileName))
+            {
+                var dbUser = odb.AsQueryable<ERUser>().Where(er => er.Id == user.Id).FirstOrDefault();
+                if (dbUser != null)
+                {
+                    odb.Delete(dbUser);
+                }
+
+                odb.Store(user);
+            }
         }
 
         public void DeleteUser(ERUser user)
@@ -70,6 +79,7 @@ namespace EasyRight.Models
 
         public void AddRole(ERRole role)
         {
+            role.Id = Guid.NewGuid();
             using (var odb = OdbFactory.Open(dbFileName))
             {
                 odb.Store(role);
@@ -78,8 +88,16 @@ namespace EasyRight.Models
 
         public void UpdateRole(ERRole role)
         {
-            DeleteRole(role);
-            AddRole(role);
+            using (var odb = OdbFactory.Open(dbFileName))
+            {
+                var db = odb.AsQueryable<ERUser>().Where(er => er.Id == role.Id).FirstOrDefault();
+                if (db != null)
+                {
+                    odb.Delete(db);
+                }
+
+                odb.Store(role);
+            }
         }
 
         public void DeleteRole(ERRole role)
@@ -116,6 +134,7 @@ namespace EasyRight.Models
 
         public void AddOperation(EROperation operation)
         {
+            operation.Id = Guid.NewGuid();
             using (var odb = OdbFactory.Open(dbFileName))
             {
                 odb.Store(operation);
@@ -124,8 +143,16 @@ namespace EasyRight.Models
 
         public void UpdateOperation(EROperation operation)
         {
-            DeleteOperation(operation);
-            AddOperation(operation);
+            using (var odb = OdbFactory.Open(dbFileName))
+            {
+                var db = odb.AsQueryable<EROperation>().Where(er => er.Id == operation.Id).FirstOrDefault();
+                if (db != null)
+                {
+                    odb.Delete(db);
+                }
+
+                odb.Store(operation);
+            }
         }
 
         public void DeleteOperation(EROperation operation)
