@@ -40,6 +40,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="NDatabase3">
+      <HintPath>..\dlls\NDatabase3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.Entity" />
@@ -138,8 +141,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ERRelation.cs" />
+    <Compile Include="Models\IERRepositry.cs" />
     <Compile Include="Models\EROperation.cs" />
-    <Compile Include="Models\ERRightManager.cs" />
+    <Compile Include="Models\ERRepositry.cs" />
     <Compile Include="Models\ERRole.cs" />
     <Compile Include="Models\ERUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

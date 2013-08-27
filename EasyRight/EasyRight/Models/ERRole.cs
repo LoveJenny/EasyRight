@@ -13,10 +13,6 @@ namespace EasyRight.Models
 
         public string Descrption { get; set; }
 
-        public IList<EROperation> Operations { get; set; }
-
-        public IList<ERUser> Users { get; set; }
-
         public bool IsEnabled { get; set; }
     }
 }

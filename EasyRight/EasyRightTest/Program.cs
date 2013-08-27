@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NDatabase;
+using System;
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Linq;
@@ -14,6 +15,57 @@ namespace EasyRightTest
     class Program
     {
         static void Main(string[] args)
+        {
+            string dbFile = "test.db";
+
+            OdbFactory.Delete(dbFile);
+
+            User user3 = new User() { Id = Guid.Empty, Name = "test3", Password = "test3", Email = "test3@ddd.com" };
+            using (var factory = OdbFactory.Open(dbFile))
+            {
+                user3.PropertiesData["Age"] = 18;
+                user3.PropertiesData["Address"] = "dghfhfg";
+                user3.PropertiesData["IsMarried"] = true;
+
+                factory.Store(user3);
+
+                List<User> users = new List<User>();
+
+                for (int i = 0; i < 10; i++)
+                {
+                    User tempUser = new User() { Id = Guid.NewGuid(), Name = "test" + i, Password = "test" + i, Email = i + "test@ddd.com" };
+                    tempUser.PropertiesData["Age"] = i + 24;
+                    tempUser.PropertiesData["Address"] = Guid.NewGuid().ToString();
+                    tempUser.PropertiesData["IsMarried"] = true;
+
+                    users.Add(tempUser);
+                }
+
+                factory.Store(users);
+            }
+
+            using (var factory = OdbFactory.Open(dbFile))
+            {
+                var result = factory.AsQueryable<User>().ToList();
+
+                user3.Name = "FFFFFFF";
+
+                var dbUser = factory.AsQueryable<User>().Where(er => er.Id == user3.Id).FirstOrDefault();
+                if (dbUser != null)
+                {
+                    factory.Delete(dbUser);
+                }
+
+                factory.Store(user3);
+
+                result = factory.QueryAndExecute<User>().ToList();
+            }
+
+
+            Console.ReadLine();
+        }
+
+        private static void JsonTest()
         {
             JavaScriptSerializer jsSerializer = new JavaScriptSerializer();
             DataContractJsonSerializer dcSerializer = new DataContractJsonSerializer(typeof(User));
@@ -36,7 +88,7 @@ namespace EasyRightTest
             for (int i = 0; i < 10; i++)
             {
                 User tempUser = new User() { Id = Guid.NewGuid(), Name = "test" + i, Password = "test" + i, Email = i + "test@ddd.com" };
-                tempUser.PropertiesData["Age"] = i+24;
+                tempUser.PropertiesData["Age"] = i + 24;
                 tempUser.PropertiesData["Address"] = Guid.NewGuid().ToString();
                 tempUser.PropertiesData["IsMarried"] = true;
 
@@ -46,9 +98,7 @@ namespace EasyRightTest
             string jsonUsers = jsSerializer.Serialize(users);
             Console.WriteLine(jsonUsers);
 
-            var deserializeUsers = jsSerializer.Deserialize(jsonUsers,typeof(List<User>));
-
-            Console.ReadLine();
+            var deserializeUsers = jsSerializer.Deserialize(jsonUsers, typeof(List<User>));
         }
     }
 

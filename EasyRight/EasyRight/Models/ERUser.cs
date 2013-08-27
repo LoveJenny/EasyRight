@@ -19,10 +19,12 @@ namespace EasyRight.Models
 
         public bool IsEnable { get; set; }
 
-        public dynamic Properties
+        private Dictionary<string, object> propertiesData = new Dictionary<string, object>();
+        public Dictionary<string, object> Properties
         {
-            get;
-            set;
+            get { return this.propertiesData; }
+            set { this.propertiesData = value; }
         }
+
     }
 }
