@@ -52,6 +52,11 @@
             @Html.ValidationMessageFor(model => model.IsEnable)
         </div>
 
+        @Html.EditorFor(model => model.DatePicker);
+
+        @Html.EditorFor(model => model.Properties);
+
+
         <p>
             <input type="submit" value="Create" />
         </p>
