@@ -8,6 +8,12 @@ namespace EasyRight.Models
 {
     public class ERUser
     {
+        public ERUser()
+        {
+            Properties.Add(new ERProperty() { Name = "QQ", Value = "", TemplateName = "String" });
+            Properties.Add(new ERProperty() { Name = "Sex", Value = "", TemplateName = DefaultTemplateName.Boolean });
+        }
+
         [UIHint("HiddenInput")]
         public Guid Id { get; set; }
 
@@ -23,12 +29,12 @@ namespace EasyRight.Models
 
         public bool IsEnable { get; set; }
 
-        [UIHint("ListERProperty")]
-        [System.ComponentModel.DataAnnotations.Editable(true)]
+        private IList<ERProperty> _properties = new List<ERProperty>();
+
         public IList<ERProperty> Properties
         {
-            get;
-            set;
+            get { return _properties; }
+            set { _properties = value; }
         }
     }
 }

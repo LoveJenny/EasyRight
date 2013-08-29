@@ -1,0 +1,16 @@
+﻿@model EasyRight.Models.ERProperty
+@{
+    Layout = null;
+}
+
+<tr>
+    <td>@this.Model.Name</td>
+    <td>
+        <div class="hidden">
+            @Html.EditorFor(x => x.Name)
+            @Html.EditorFor(x=>x.TemplateName)
+        </div>
+        @Html.EditorFor(x => x.Value, this.Model.TemplateName, null)
+    </td>
+
+</tr>

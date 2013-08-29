@@ -33,7 +33,8 @@ namespace EasyRight.Controllers
 
         public ActionResult Create()
         {
-            return View();
+            ERUser user = new ERUser();
+            return View(user);
         }
 
         //

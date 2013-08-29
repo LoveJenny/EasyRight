@@ -5,11 +5,17 @@ using System.Web;
 
 namespace EasyRight.Models
 {
-    public class ERPropertyType
+    public class DefaultTemplateName
     {
-        public static readonly Type String = typeof(string);
-        public static readonly Type Int = typeof(int);
-        public static readonly Type DateTime = typeof(DateTime);
+        public static readonly string Boolean = "Boolean";
+        public static readonly string Decimal = "Decimal";
+        public static readonly string EmailAddress = "EmailAddress";
+        public static readonly string HiddenInput = "HiddenInput";
+        public static readonly string Html = "Html";
+        public static readonly string Object = "Object";
+        public static readonly string String = "String";
+        public static readonly string Text = "Text";
+        public static readonly string Url = "Url";
     }
 
     public class ERProperty
@@ -17,6 +23,6 @@ namespace EasyRight.Models
         public string Name { get; set; }
         public string Value { get; set; }
 
-        public ERPropertyType Type { get; set; }
+        public string TemplateName { get; set; }
     }
 }

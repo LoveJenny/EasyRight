@@ -13,6 +13,22 @@
         <legend>ERUser</legend>
 
         @Html.EditorForModel()
+
+        <div class="editor-label">
+             @Html.LabelFor(model => model.Properties)
+         </div>
+        <div class="editor-field">
+            <fieldset>
+                <legend>Additional Properties
+                </legend>
+                <table>
+                    @Html.EditorFor(model => model.Properties)
+                </table>
+            </fieldset>
+
+            @Html.ValidationMessageFor(model => model.Properties)
+        </div>
+
         <p>
             <input type="submit" value="Save" />
         </p>

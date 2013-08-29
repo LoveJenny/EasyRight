@@ -287,6 +287,8 @@
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\ListERProperty.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ERProperty.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ERProperty.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
