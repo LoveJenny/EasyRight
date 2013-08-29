@@ -31,12 +31,5 @@ namespace EasyRight.Models
             get { return this.propertiesData; }
             set { this.propertiesData = value; }
         }
-
-        [UIHint("DatePicker")]
-        public DateTime DatePicker
-        {
-            get;
-            set;
-        }
     }
 }

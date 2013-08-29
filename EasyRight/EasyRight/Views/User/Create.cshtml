@@ -12,50 +12,7 @@
     <fieldset>
         <legend>ERUser</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserNumber)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UserNumber)
-            @Html.ValidationMessageFor(model => model.UserNumber)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Password)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Password)
-            @Html.ValidationMessageFor(model => model.Password)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IsEnable)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IsEnable)
-            @Html.ValidationMessageFor(model => model.IsEnable)
-        </div>
-
-        @Html.EditorFor(model => model.DatePicker);
-
-        @Html.EditorFor(model => model.Properties);
-
+        @Html.EditorForModel();
 
         <p>
             <input type="submit" value="Create" />
