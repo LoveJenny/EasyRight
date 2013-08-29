@@ -1,6 +1,7 @@
 ﻿using NDatabase;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -18,7 +19,7 @@ namespace EasyRight.Models
             get { return _instance; }
         }
 
-        private const string dbFileName = "ERSystem.db";
+        private readonly string dbFileName = ConfigurationManager.AppSettings["DBFileName"].ToString();
 
         #region User
 
