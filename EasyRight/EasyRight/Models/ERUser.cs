@@ -23,13 +23,12 @@ namespace EasyRight.Models
 
         public bool IsEnable { get; set; }
 
-        private Dictionary<string, string> propertiesData = new Dictionary<string, string>();
-
-        [UIHint("Collection")]
-        public Dictionary<string, string> Properties
+        [UIHint("ListERProperty")]
+        [System.ComponentModel.DataAnnotations.Editable(true)]
+        public IList<ERProperty> Properties
         {
-            get { return this.propertiesData; }
-            set { this.propertiesData = value; }
+            get;
+            set;
         }
     }
 }

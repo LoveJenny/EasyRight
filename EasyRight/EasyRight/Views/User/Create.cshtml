@@ -14,6 +14,14 @@
 
         @Html.EditorForModel();
 
+         <div class="editor-label">
+            @Html.LabelFor(model => model.Properties)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Properties)
+            @Html.ValidationMessageFor(model => model.Properties)
+        </div>
+
         <p>
             <input type="submit" value="Create" />
         </p>
