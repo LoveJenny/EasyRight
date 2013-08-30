@@ -10,6 +10,7 @@ namespace EasyRight.Models
     {
         public ERUser()
         {
+            Id = Guid.NewGuid();
             Properties.Add(new ERProperty() { Name = "QQ", Value = "", TemplateName = "String" });
             Properties.Add(new ERProperty() { Name = "Sex", Value = "", TemplateName = DefaultTemplateName.Boolean });
         }
