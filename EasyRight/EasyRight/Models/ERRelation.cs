@@ -11,6 +11,7 @@ namespace EasyRight.Models
         RoleOperation,
     }
 
+    [Serializable]
     public class ERRelation
     {
         public Guid Id { get; set; }

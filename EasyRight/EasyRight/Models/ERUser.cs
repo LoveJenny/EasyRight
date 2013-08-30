@@ -1,11 +1,14 @@
-﻿using System;
+﻿using EasyRight.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Xml.Serialization;
 
 namespace EasyRight.Models
 {
+    [Serializable]
     public class ERUser
     {
         public ERUser()
@@ -30,9 +33,9 @@ namespace EasyRight.Models
 
         public bool IsEnable { get; set; }
 
-        private IList<ERProperty> _properties = new List<ERProperty>();
+        private List<ERProperty> _properties = new List<ERProperty>();
 
-        public IList<ERProperty> Properties
+        public List<ERProperty> Properties
         {
             get { return _properties; }
             set { _properties = value; }

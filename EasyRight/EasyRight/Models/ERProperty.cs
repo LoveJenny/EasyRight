@@ -18,6 +18,7 @@ namespace EasyRight.Models
         public static readonly string Url = "Url";
     }
 
+    [Serializable]
     public class ERProperty
     {
         public string Name { get; set; }

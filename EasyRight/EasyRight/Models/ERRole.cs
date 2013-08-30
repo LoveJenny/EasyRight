@@ -5,6 +5,7 @@ using System.Web;
 
 namespace EasyRight.Models
 {
+    [Serializable]
     public class ERRole
     {
         public Guid Id { get; set; }
