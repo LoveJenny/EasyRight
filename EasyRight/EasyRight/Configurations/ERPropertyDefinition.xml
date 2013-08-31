@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AttachedProperties>
+  <Property AttachedType ="EasyRight.Models.ERUser">
+    <![CDATA[
+    <ArrayOfERProperty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <ERProperty>
+        <Name>QQ</Name>
+        <Value />
+        <TemplateName>String</TemplateName>
+      </ERProperty>
+      <ERProperty>
+        <Name>Sex</Name>
+        <Value />
+        <TemplateName>Boolean</TemplateName>
+      </ERProperty>
+      <ERProperty>
+        <Name>出生日期</Name>
+        <Value />
+        <TemplateName>DateTime</TemplateName>
+      </ERProperty>
+    </ArrayOfERProperty>
+    ]]>
+  </Property>
+</AttachedProperties>

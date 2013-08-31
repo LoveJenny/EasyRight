@@ -1,4 +1,5 @@
-﻿using EasyRight.Helpers;
+﻿using EasyRight.Configurations;
+using EasyRight.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -14,8 +15,7 @@ namespace EasyRight.Models
         public ERUser()
         {
             Id = Guid.NewGuid();
-            Properties.Add(new ERProperty() { Name = "QQ", Value = "", TemplateName = "String" });
-            Properties.Add(new ERProperty() { Name = "Sex", Value = "", TemplateName = DefaultTemplateName.Boolean });
+            Properties = ERPropertyDefinition.LoadERProperties(this.GetType());
         }
 
         [UIHint("HiddenInput")]
