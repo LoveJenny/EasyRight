@@ -13,10 +13,15 @@
         <Value />
         <TemplateName>Boolean</TemplateName>
       </ERProperty>
+       <ERProperty>
+        <Name>手机号码</Name>
+        <Value />
+        <TemplateName>String</TemplateName>
+      </ERProperty>
       <ERProperty>
         <Name>出生日期</Name>
         <Value />
-        <TemplateName>DateTime</TemplateName>
+        <TemplateName>DateTime?</TemplateName>
       </ERProperty>
     </ArrayOfERProperty>
     ]]>
