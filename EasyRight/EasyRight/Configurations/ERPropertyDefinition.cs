@@ -36,7 +36,7 @@ namespace EasyRight.Configurations
                 CachedProperties[type] = properties;
             }
 
-            return CachedProperties[type];
+            return new List<ERProperty>(CachedProperties[type]);
         }
     }
 }

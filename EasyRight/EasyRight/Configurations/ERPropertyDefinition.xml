@@ -21,7 +21,7 @@
       <ERProperty>
         <Name>出生日期</Name>
         <Value />
-        <TemplateName>DateTime?</TemplateName>
+        <TemplateName>DateTime</TemplateName>
       </ERProperty>
     </ArrayOfERProperty>
     ]]>

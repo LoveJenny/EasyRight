@@ -10,7 +10,15 @@
             @Html.EditorFor(x => x.Name)
             @Html.EditorFor(x=>x.TemplateName)
         </div>
-        @Html.EditorFor(x => x.Value, this.Model.TemplateName, null)
+
+        @if(this.Model.TemplateName.Contains("DateTime"))
+        {
+            @Html.EditorFor(x =>Convert.ToDateTime(x.Value), "DateTime", null)
+        }
+        else
+        {
+            @Html.EditorFor(x =>x.Value, this.Model.TemplateName, null)
+        }
     </td>
 
 </tr>
