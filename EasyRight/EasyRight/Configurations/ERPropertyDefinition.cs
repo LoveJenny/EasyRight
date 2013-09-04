@@ -10,15 +10,15 @@ namespace EasyRight.Configurations
 {
     public static class ERPropertyDefinition
     {
-        private static Dictionary<Type, List<ERProperty>> CachedProperties = new Dictionary<Type, List<ERProperty>>();
+        private static Dictionary<Type, string> dicTypeContent = new Dictionary<Type, string>();
 
         private static readonly string FileName = HttpContext.Current.Server.MapPath("~/bin/Configurations/ERPropertyDefinition.xml");
 
-        public static List<ERProperty> LoadERProperties(Type type)
+        public static T LoadERProperties<T>(Type type)
         {
-            if (!CachedProperties.ContainsKey(type))
+            if (!dicTypeContent.ContainsKey(type))
             {
-                List<ERProperty> properties = new List<ERProperty>();
+                string content = "";
 
                 XElement root = XElement.Load(FileName);
 
@@ -26,17 +26,16 @@ namespace EasyRight.Configurations
                 {
                     if (property.Attribute("AttachedType").Value.ToUpper() == type.FullName.ToUpper())
                     {
-                        string content = property.Value.Trim();
-
-                        properties = XmlHelper.Deserialize<List<ERProperty>>(content);
+                        content= property.Value.Trim();
                         break;
                     }
                 }
 
-                CachedProperties[type] = properties;
+                dicTypeContent[type] = content;
             }
 
-            return new List<ERProperty>(CachedProperties[type]);
+            return XmlHelper.Deserialize<T>(dicTypeContent[type]);
         }
+
     }
 }

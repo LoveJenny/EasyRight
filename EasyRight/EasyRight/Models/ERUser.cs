@@ -15,7 +15,7 @@ namespace EasyRight.Models
         public ERUser()
         {
             Id = Guid.NewGuid();
-            Properties = ERPropertyDefinition.LoadERProperties(this.GetType());
+            Properties = ERPropertyDefinition.LoadERProperties<List<ERProperty>>(this.GetType());
         }
 
         [UIHint("HiddenInput")]
