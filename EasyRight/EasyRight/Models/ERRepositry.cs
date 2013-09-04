@@ -70,7 +70,7 @@ namespace EasyRight.Models
         {
             using (var odb = OdbFactory.Open(dbFileName))
             {
-                return odb.AsQueryable<ERUser>().ToList();
+                return odb.AsQueryable<ERUser>().OrderBy(u => u.Name).ToList();
             }
         }
 
@@ -125,7 +125,7 @@ namespace EasyRight.Models
         {
             using (var odb = OdbFactory.Open(dbFileName))
             {
-                return odb.AsQueryable<ERRole>().ToList();
+                return odb.AsQueryable<ERRole>().OrderBy(r => r.Name).ToList();
             }
         }
 
@@ -172,7 +172,7 @@ namespace EasyRight.Models
         {
             using (var odb = OdbFactory.Open(dbFileName))
             {
-                return odb.AsQueryable<EROperation>().ToList();
+                return odb.AsQueryable<EROperation>().OrderBy(o => o.Name).ToList();
             }
         }
 
