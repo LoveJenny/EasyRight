@@ -12,29 +12,7 @@
     <fieldset>
         <legend>ERRole</legend>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Name)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Name)
-            @Html.ValidationMessageFor(model => model.Name)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Descrption)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Descrption)
-            @Html.ValidationMessageFor(model => model.Descrption)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.IsEnabled)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.IsEnabled)
-            @Html.ValidationMessageFor(model => model.IsEnabled)
-        </div>
+         @Html.EditorForModel()
 
         <p>
             <input type="submit" value="Create" />
