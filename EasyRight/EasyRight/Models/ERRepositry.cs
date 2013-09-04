@@ -91,7 +91,7 @@ namespace EasyRight.Models
         {
             using (var odb = OdbFactory.Open(dbFileName))
             {
-                var db = odb.AsQueryable<ERUser>().Where(er => er.Id == role.Id).FirstOrDefault();
+                var db = odb.AsQueryable<ERRole>().Where(er => er.Id == role.Id).FirstOrDefault();
                 if (db != null)
                 {
                     odb.Delete(db);
@@ -105,7 +105,7 @@ namespace EasyRight.Models
         {
             using (var odb = OdbFactory.Open(dbFileName))
             {
-                var db = odb.AsQueryable<ERUser>().Where(er => er.Id == role.Id).FirstOrDefault();
+                var db = odb.AsQueryable<ERRole>().Where(er => er.Id == role.Id).FirstOrDefault();
                 if (db != null)
                 {
                     odb.Delete(db);

@@ -1,0 +1,36 @@
+﻿@model EasyRight.Models.ERRole
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>ERRole</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Descrption)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Descrption)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IsEnabled)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsEnabled)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
