@@ -1,5 +1,7 @@
-﻿@model System.DateTime?
+﻿@model string
 
-@Html.TextBox("",
-String.Format("{0:yyyy-MM-dd}", Model.HasValue ? Model : DateTime.Today), 
-new { @class = "ui_date_picker"})
+@{
+    DateTime dt = string.IsNullOrEmpty(Model) ? DateTime.Today : Convert.ToDateTime(Model);    
+}
+
+@Html.TextBox("", String.Format("{0:yyyy-MM-dd}", dt), new { @class = "ui_date_picker" })

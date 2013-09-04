@@ -13,7 +13,7 @@
 
         @if(this.Model.TemplateName.Contains("DateTime"))
         {
-            @Html.EditorFor(x =>Convert.ToDateTime(x.Value), "DateTime", null)
+            @Html.EditorFor(x =>x.Value, "DateTime", null)
         }
         else
         {
