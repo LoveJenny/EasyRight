@@ -56,13 +56,13 @@ namespace EasyRight.Models
          * 
          */
 
-         IList<EROperation> GetRoleOperations(ERRole role);
+         List<EROperation> GetRoleOperations(ERRole role);
 
-         IList<ERUser> GetRoleUsers(ERRole role);
+         List<ERUser> GetRoleUsers(ERRole role);
 
-         IList<ERRole> GetUserRoles(ERUser user);
+         List<ERRole> GetUserRoles(ERUser user);
 
-         IList<EROperation> GetUserOperations(ERUser user);
+         List<EROperation> GetUserOperations(ERUser user);
 
          void RefreshRoleOperations(ERRole role, IList<EROperation> operations);
 

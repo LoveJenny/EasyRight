@@ -185,7 +185,7 @@ namespace EasyRight.Models
          *  One user has many roles
          */
 
-        public IList<EROperation> GetRoleOperations(ERRole role)
+        public List<EROperation> GetRoleOperations(ERRole role)
         {
             List<EROperation> operations = new List<EROperation>();
 
@@ -199,7 +199,7 @@ namespace EasyRight.Models
             return operations;
         }
 
-        public IList<ERUser> GetRoleUsers(ERRole role)
+        public List<ERUser> GetRoleUsers(ERRole role)
         {
             List<ERUser> users = new List<ERUser>();
 
@@ -213,7 +213,7 @@ namespace EasyRight.Models
             return users;
         }
 
-        public IList<ERRole> GetUserRoles(ERUser user)
+        public List<ERRole> GetUserRoles(ERUser user)
         {
             List<ERRole> roles = new List<ERRole>();
 
@@ -227,7 +227,7 @@ namespace EasyRight.Models
             return roles;
         }
 
-        public IList<EROperation> GetUserOperations(ERUser user)
+        public List<EROperation> GetUserOperations(ERUser user)
         {
             List<EROperation> operations = new List<EROperation>();
             IList<ERRole> roles = GetUserRoles(user);

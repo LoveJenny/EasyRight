@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NDatabase.Api;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -17,5 +18,11 @@ namespace EasyRight.Models
         public string Descrption { get; set; }
 
         public bool IsEnabled { get; set; }
+
+        public List<EROperation> GetOperations()
+        {
+            return ERRepositry.Instance.GetRoleOperations(this);
+        }
+
     }
 }

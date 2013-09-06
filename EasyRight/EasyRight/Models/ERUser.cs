@@ -1,5 +1,6 @@
 ﻿using EasyRight.Configurations;
 using EasyRight.Helpers;
+using NDatabase.Api;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -32,6 +33,11 @@ namespace EasyRight.Models
         public string Password { get; set; }
 
         public bool IsEnable { get; set; }
+
+        public List<ERRole> GetRoles()
+        {
+            return ERRepositry.Instance.GetUserRoles(this);
+        }
 
         private List<ERProperty> _properties = new List<ERProperty>();
 
