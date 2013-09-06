@@ -12,9 +12,19 @@ namespace EasyRight.Controllers
         //
         // GET: /Operation/
 
-        public ActionResult Index()
+        public ActionResult Index(Guid rid)
         {
+            var role = ERRepositry.Instance.GetRoleById(rid);
+            var roleOpers = role.GetOperations().Select(o => o.Id);
+
             var opers = ERRepositry.Instance.GetOperations();
+            foreach (var oper in opers)
+            {
+                if (roleOpers.Contains(oper.Id))
+                {
+                    oper.IsSelected = true;
+                }
+            }
 
             return View(opers);
         }
@@ -22,10 +32,19 @@ namespace EasyRight.Controllers
         [HttpPost]
         public ActionResult Index(FormCollection form)
         {
+            Guid rid = Guid.Parse(Request.QueryString["rid"]);
+            var role = ERRepositry.Instance.GetRoleById(rid);
+
             var opers = ERRepositry.Instance.GetOperations();
+            var roleOperations = opers.Where(o => form.Keys.Cast<string>()
+                                                            .Select(s => Guid.Parse(s))
+                                                            .Contains(o.Id)).ToList();
+            
+            ERRepositry.Instance.RefreshRoleOperations(role, roleOperations);
 
-            return View(opers);
+            ViewBag.Message = "Operation Success";
+
+            return View();
         }
-
     }
 }

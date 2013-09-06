@@ -9,7 +9,7 @@
 <h2>Index</h2>
 
 <style type="text/css">
-    .fl { margin: 0; padding: 0; list-style: none; margin: 0 0 20px; }
+    .fl { margin: 0; padding: 0; list-style: none; margin: 0 0 0 20px; }
         .fl li { margin: 0 0 15px; overflow: hidden; }
 </style>
 
@@ -23,7 +23,7 @@
             @foreach (var oper in item)
             {
                 <li>
-                    <input type="checkbox" name="@oper.Id" id="@oper.Id" @(oper.IsSelected ? "checked='checked'" : "") />
+                    <input type="checkbox" name="@oper.Id" id="@oper.Id" value="@oper.Id" @(oper.IsSelected ? "checked='checked'" : "") />
                     <label class="checkbox" for="@oper.Id" title="@oper.Description">@oper.Name</label>
                 </li>
             }
@@ -32,4 +32,10 @@
     }
     
     <input type="submit" value="Save" />
+    @Html.ActionLink("Back to Role", "Index", "Role")
+}
+
+@if(!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div>@ViewBag.Message</div>
 }

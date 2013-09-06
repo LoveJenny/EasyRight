@@ -193,7 +193,7 @@ namespace EasyRight.Models
             {
                 List<ERRelation> relations = odb.AsQueryable<ERRelation>().Where(r => r.KeyId == role.Id && r.RelationType == ERRelationType.RoleOperation).ToList();
 
-                operations = odb.AsQueryable<EROperation>().Where(oper => relations.Select(r => r.ValueId).Contains(oper.Id)).ToList();
+                operations = GetOperations().Where(oper => relations.Select(r => r.ValueId).Contains(oper.Id)).ToList();
             }
 
             return operations;
@@ -245,8 +245,15 @@ namespace EasyRight.Models
         {
             using (var odb = OdbFactory.Open(dbFileName))
             {
-                List<ERRelation> relations = odb.AsQueryable<ERRelation>().Where(r => r.KeyId == role.Id && r.RelationType == ERRelationType.RoleOperation).ToList();
-                odb.Delete(relations);
+                List<ERRelation> relations = odb.AsQueryable<ERRelation>().ToList();
+
+                foreach (var relation in relations)
+                {
+                    if (relation.KeyId == role.Id && relation.RelationType == ERRelationType.RoleOperation)
+                    {
+                        odb.Delete(relation);   
+                    }
+                }
 
                 List<ERRelation> newRelations = new List<ERRelation>();
                 foreach (var oper in operations)
