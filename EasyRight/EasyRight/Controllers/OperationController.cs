@@ -44,7 +44,7 @@ namespace EasyRight.Controllers
 
             ViewBag.Message = "Operation Success";
 
-            return View();
+            return Index(rid);
         }
     }
 }

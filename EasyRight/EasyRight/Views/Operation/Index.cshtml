@@ -9,9 +9,15 @@
 <h2>Index</h2>
 
 <style type="text/css">
-    .fl { margin: 0; padding: 0; list-style: none; margin: 0 0 0 20px; }
+    .highlight { background-color: #FFFF00; border:2px solid orange; margin:5px; }
+    .fl { padding: 0; list-style: none; margin: 0 0 0 20px; }
         .fl li { margin: 0 0 15px; overflow: hidden; }
 </style>
+
+@if(!string.IsNullOrEmpty(ViewBag.Message))
+{
+    <div class="highlight" >@ViewBag.Message</div>
+}
 
 @using (Html.BeginForm())
 {
@@ -33,9 +39,4 @@
     
     <input type="submit" value="Save" />
     @Html.ActionLink("Back to Role", "Index", "Role")
-}
-
-@if(!string.IsNullOrEmpty(ViewBag.Message))
-{
-    <div>@ViewBag.Message</div>
 }
