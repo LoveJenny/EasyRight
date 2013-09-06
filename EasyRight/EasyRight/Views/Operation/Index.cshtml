@@ -2,35 +2,34 @@
 
 @{
     ViewBag.Title = "Index";
+
+    var groupOperations = Model.GroupBy(m => m.GroupName);
 }
 
 <h2>Index</h2>
 
-<table>
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupName)
-        </th>
-    </tr>
+<style type="text/css">
+    .fl { margin: 0; padding: 0; list-style: none; margin: 0 0 20px; }
+        .fl li { margin: 0 0 15px; overflow: hidden; }
+</style>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupName)
-        </td>
-    </tr>
+@using (Html.BeginForm())
+{
+    foreach (var item in groupOperations)
+    {
+    <div class="dashboardWidget rounded">
+        <h2 style="border: none;">@item.Key</h2>
+        <ul class="fl">
+            @foreach (var oper in item)
+            {
+                <li>
+                    <input type="checkbox" name="@oper.Id" id="@oper.Id" @(oper.IsSelected ? "checked='checked'" : "") />
+                    <label class="checkbox" for="@oper.Id" title="@oper.Description">@oper.Name</label>
+                </li>
+            }
+        </ul>
+    </div>
+    }
+    
+    <input type="submit" value="Save" />
 }
-
-</table>

@@ -19,5 +19,13 @@ namespace EasyRight.Controllers
             return View(opers);
         }
 
+        [HttpPost]
+        public ActionResult Index(FormCollection form)
+        {
+            var opers = ERRepositry.Instance.GetOperations();
+
+            return View(opers);
+        }
+
     }
 }

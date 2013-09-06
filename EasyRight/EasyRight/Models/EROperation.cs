@@ -15,5 +15,7 @@ namespace EasyRight.Models
         public string Description { get; set; }
 
         public string GroupName { get; set; }
+
+        public bool IsSelected { get; set; }
     }
 }
