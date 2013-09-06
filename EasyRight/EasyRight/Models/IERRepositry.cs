@@ -35,11 +35,13 @@ namespace EasyRight.Models
 
         #region Operations
 
+        /*
          void AddOperation(EROperation operation);
 
          void UpdateOperation(EROperation operation);
 
          void DeleteOperation(EROperation operation);
+         */
 
          List<EROperation> GetOperations();
 

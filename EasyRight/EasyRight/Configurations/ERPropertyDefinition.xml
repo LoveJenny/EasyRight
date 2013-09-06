@@ -29,241 +29,129 @@
   
   <Property AttachedType ="EasyRight.Models.EROperation">
     <![CDATA[
-    
-        #region Posts
-
-        /// <summary>
-        /// A user is allowed to view posts that are both published and public.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        ViewPublicPosts,
-
-        /// <summary>
-        /// A user is allowed to view unpublished posts.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        ViewUnpublishedPosts,
-
-        ///// <summary>
-        ///// A user is allowed to view non-public posts.
-        ///// </summary>
-        // 11/6/2010 - commented out, we don't currently have "private" posts, just unpublished.
-        //[RightDetails(Category = RightCategory.Posts)]
-        //ViewPrivatePosts,
-
-        /// <summary>
-        /// A user can create new posts. 
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        CreateNewPosts,
-
-        /// <summary>
-        /// A user can edit their own posts. 
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        EditOwnPosts,
-
-        /// <summary>
-        /// A user can edit posts created by other users.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        EditOtherUsersPosts,
-
-        /// <summary>
-        /// A user can delete their own posts.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        DeleteOwnPosts,
-
-        /// <summary>
-        /// A user can delete posts created by other users.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        DeleteOtherUsersPosts,
-
-        /// <summary>
-        /// A user can set whether or not their own posts are published.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        PublishOwnPosts,
-
-        /// <summary>
-        /// A user can set whether or not another user's posts are published.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        PublishOtherUsersPosts,
-
-        #endregion
-
-        #region Pages
-        
-        /// <summary>
-        /// A user can view public, published pages.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Pages)]
-        ViewPublicPages,
-
-        /// <summary>
-        /// A user can view unpublished pages.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Pages)]
-        ViewUnpublishedPages,
-
-        /// <summary>
-        /// A user can create new pages.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Pages)]
-        CreateNewPages,
-
-        /// <summary>
-        /// A user can edit pages they've created.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Pages)]
-        EditOwnPages,
-
-        /// <summary>
-        /// A user can edit pages other users have created.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Pages)]
-        EditOtherUsersPages,
-
-        /// <summary>
-        /// A user can delete pages they've created.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Pages)]
-        DeleteOwnPages,
-
-        /// <summary>
-        /// A user can delete pages other users have created.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Pages)]
-        DeleteOtherUsersPages,
-
-        /// <summary>
-        /// A user can set whether or not their own pages are published.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Pages)]
-        PublishOwnPages,
-
-        /// <summary>
-        /// A user can set whether or not another user's pages are published.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Pages)]
-        PublishOtherUsersPages,
-
-        #endregion
-
-        #region "Ratings"
-
-        /// <summary>
-        /// A user can view ratings on posts.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        ViewRatingsOnPosts,
-
-        /// <summary>
-        /// A user can submit ratings on posts.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Posts)]
-        SubmitRatingsOnPosts,
-        #endregion
-
-        #region Roles
-
-        /// <summary>
-        /// A user can view roles.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Roles)]
-        ViewRoles,
-
-        /// <summary>
-        /// A user can create new roles.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Roles)]
-        CreateNewRoles,
-
-        /// <summary>
-        /// A user can edit existing roles.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Roles)]
-        EditRoles,
-
-        /// <summary>
-        /// A user can delete existing roles.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Roles)]
-        DeleteRoles,
-
-        /// <summary>
-        /// A user is allowed to edit their own roles.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Roles)]
-        EditOwnRoles,
-
-        /// <summary>
-        /// A user is allowed to edit the roles of other users.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Roles)]
-        EditOtherUsersRoles,
-
-        #endregion
-
-        #region Users
-
-        /// <summary>
-        /// A user is allowed to register/create a new account. 
-        /// </summary>
-        [RightDetails(Category = RightCategory.Users)]
-        CreateNewUsers,
-
-        /// <summary>
-        /// A user is allowed to delete their own account.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Users)]
-        DeleteUserSelf,
-
-        /// <summary>
-        /// A user is allowed to delete accounts they do not own.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Users)]
-        DeleteUsersOtherThanSelf,
-
-        /// <summary>
-        /// A user is allowed to edit their own account information.
-        /// </summary>
-        [RightDetails(Category = RightCategory.Users)]
-        EditOwnUser,
-
-        /// <summary>
-        /// A user is allowed to edit the account information of other users.
-        /// </summary>
-        [RightDetails(Category=RightCategory.Users)]
-        EditOtherUsers,
-
-        #endregion
-    
-    <ArrayOfERProperty xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-      <ERProperty>
-        <Name>QQ</Name>
-        <Value />
-        <TemplateName>String</TemplateName>
-      </ERProperty>
-      <ERProperty>
-        <Name>Sex</Name>
-        <Value />
-        <TemplateName>Boolean</TemplateName>
-      </ERProperty>
-       <ERProperty>
-        <Name>手机号码</Name>
-        <Value />
-        <TemplateName>String</TemplateName>
-      </ERProperty>
-      <ERProperty>
-        <Name>出生日期</Name>
-        <Value />
-        <TemplateName>DateTime</TemplateName>
-      </ERProperty>
-    </ArrayOfERProperty>
+    <?xml version="1.0" encoding="utf-16"?>
+    <ArrayOfEROperation xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <EROperation>
+        <Id>beeace21-1250-4ca4-825d-745b9d0e1ecb</Id>
+        <Name>ViewRoles</Name>
+        <Description>ViewRoles</Description>
+        <GroupName>Roles</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>32a82251-3ec3-4aac-a328-daafb16e8047</Id>
+        <Name>CreateNewRoles</Name>
+        <Description>CreateNewRoles</Description>
+        <GroupName>Roles</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>f66bde97-5d72-47e8-aedf-801c6c6152de</Id>
+        <Name>EditRoles</Name>
+        <Description>EditRoles</Description>
+        <GroupName>Roles</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>b69e5f41-366d-4cd1-9029-2e87b6a71cbb</Id>
+        <Name>DeleteRoles</Name>
+        <Description>DeleteRoles</Description>
+        <GroupName>Roles</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>0f1807d4-1bd2-411e-a176-a9941050e9ca</Id>
+        <Name>EditOwnRoles</Name>
+        <Description>EditOwnRoles</Description>
+        <GroupName>Roles</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>9db42401-6bb0-4dd3-b1de-2be34d849017</Id>
+        <Name>EditOtherUsersRoles</Name>
+        <Description>EditOtherUsersRoles</Description>
+        <GroupName>Roles</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>d0752c01-bebf-45d2-8cac-be8e0dd56bcd</Id>
+        <Name>CreateNewUsers</Name>
+        <Description>CreateNewUsers</Description>
+        <GroupName>Users</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>57717ce5-8a46-4fbc-bb0a-c3b89051730d</Id>
+        <Name>DeleteUserSelf</Name>
+        <Description>DeleteUserSelf</Description>
+        <GroupName>Users</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>709ff6ba-e03a-46f0-893a-22372c627b2b</Id>
+        <Name>DeleteUsersOtherThanSelf</Name>
+        <Description>DeleteUsersOtherThanSelf</Description>
+        <GroupName>Users</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>8279bbcd-c535-4cf4-bb93-eb2a48c633af</Id>
+        <Name>EditOwnUser</Name>
+        <Description>EditOwnUser</Description>
+        <GroupName>Users</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>d82f5e60-195c-42b0-a17c-cfb2942a0199</Id>
+        <Name>EditOtherUsers</Name>
+        <Description>EditOtherUsers</Description>
+        <GroupName>Users</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>694b2c55-5fb1-4ecb-a9e3-2b8f320f1cd0</Id>
+        <Name>ViewPublicPages</Name>
+        <Description>ViewPublicPages</Description>
+        <GroupName>Pages</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>9319676f-3609-42ee-b864-8d1eec4b4ad3</Id>
+        <Name>ViewUnpublishedPages</Name>
+        <Description>ViewUnpublishedPages</Description>
+        <GroupName>Pages</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>23e6d409-0028-435b-8d8f-28fb2e657424</Id>
+        <Name>CreateNewPages</Name>
+        <Description>CreateNewPages</Description>
+        <GroupName>Pages</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>054183e8-97bc-4b0b-828c-1317dc8f2cac</Id>
+        <Name>EditOwnPages</Name>
+        <Description>EditOwnPages</Description>
+        <GroupName>Pages</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>e93aae58-88f5-4492-b781-b1a25e02ab48</Id>
+        <Name>EditOtherUsersPages</Name>
+        <Description>EditOtherUsersPages</Description>
+        <GroupName>Pages</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>1333aa10-6b8e-4a8a-8764-2727352d4257</Id>
+        <Name>DeleteOwnPages</Name>
+        <Description>DeleteOwnPages</Description>
+        <GroupName>Pages</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>d6b41f5d-dc95-424b-b85d-c440f3a9feeb</Id>
+        <Name>DeleteOtherUsersPages</Name>
+        <Description>DeleteOtherUsersPages</Description>
+        <GroupName>Pages</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>113db77c-dcb2-4ac8-a47b-e1bd3b08b2dd</Id>
+        <Name>PublishOwnPages</Name>
+        <Description>PublishOwnPages</Description>
+        <GroupName>Pages</GroupName>
+      </EROperation>
+      <EROperation>
+        <Id>769ac081-c3d1-4fd3-b95e-9e777bc90aec</Id>
+        <Name>PublishOtherUsersPages</Name>
+        <Description>PublishOtherUsersPages</Description>
+        <GroupName>Pages</GroupName>
+      </EROperation>
+    </ArrayOfEROperation>
     ]]>
   </Property>
   

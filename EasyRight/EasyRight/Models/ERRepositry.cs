@@ -1,4 +1,5 @@
-﻿using NDatabase;
+﻿using EasyRight.Configurations;
+using NDatabase;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -133,6 +134,7 @@ namespace EasyRight.Models
 
         #region Operations
 
+        /*
         public void AddOperation(EROperation operation)
         {
             operation.Id = Guid.NewGuid();
@@ -167,13 +169,11 @@ namespace EasyRight.Models
                 }
             }
         }
-
+        */
+ 
         public List<EROperation> GetOperations()
         {
-            using (var odb = OdbFactory.Open(dbFileName))
-            {
-                return odb.AsQueryable<EROperation>().OrderBy(o => o.Name).ToList();
-            }
+            return ERPropertyDefinition.LoadERProperties<List<EROperation>>(typeof(EROperation));
         }
 
         #endregion
@@ -181,10 +181,8 @@ namespace EasyRight.Models
         #region Relations
 
         /*
-         *  Role has many operations
-         *  Role has many users
-         *  user belong to many roles
-         * 
+         *  One Role has many operations
+         *  One user has many roles
          */
 
         public IList<EROperation> GetRoleOperations(ERRole role)
