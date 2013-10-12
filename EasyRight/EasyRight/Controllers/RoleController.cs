@@ -19,6 +19,7 @@ namespace EasyRight.Controllers
             return View(Roles);
         }
 
+
         //
         // GET: /Role/Details/5
 
@@ -108,5 +109,21 @@ namespace EasyRight.Controllers
                 return View();
             }
         }
+
+        public ActionResult SelectUserRoles(ERUser user)
+        {
+            var allRoles = ERRepositry.Instance.GetRoles();
+            var userRoles = new List<ERRole>();
+            if (user != null)
+            {
+                userRoles = ERRepositry.Instance.GetUserRoles(user);
+            }
+
+            ViewBag.AllRoles = allRoles;
+            ViewBag.UserRoles = userRoles;
+
+            return PartialView();
+        }
+
     }
 }

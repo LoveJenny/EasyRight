@@ -1,0 +1,20 @@
+﻿@using ERRole = EasyRight.Models.ERRole;
+
+@{
+    Layout = null;
+}
+
+<div>
+    <p>Please select roles</p>
+
+    <fieldset>
+        <legend>Please select roles</legend>        
+        @foreach (ERRole item in ViewBag.AllRoles)
+        {
+            bool selected = ((List<ERRole>)ViewBag.UserRoles).Any(i => i.Id == item.Id);
+
+            <input type="checkbox" id="@item.Id" name="roles" value="@item.Id" @(selected ? "checked='checked'" : "") />
+            <label for="@item.Id" class="checkbox">@item.Name</label>
+        }
+    </fieldset>
+</div>

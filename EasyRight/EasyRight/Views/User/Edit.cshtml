@@ -29,6 +29,8 @@
             @Html.ValidationMessageFor(model => model.Properties)
         </div>
 
+        @Html.Action("SelectUserRoles", "Role", new { user = Model });
+
         <p>
             <input type="submit" value="Save" />
         </p>

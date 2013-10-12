@@ -269,13 +269,45 @@ namespace EasyRight.Models
         {
             using (var odb = OdbFactory.Open(dbFileName))
             {
-                List<ERRelation> relations = odb.AsQueryable<ERRelation>().Where(r => r.KeyId == role.Id && r.RelationType == ERRelationType.RoleUser).ToList();
-                odb.Delete(relations);
+                List<ERRelation> relations = odb.AsQueryable<ERRelation>().ToList();
+
+                foreach (var relation in relations)
+                {
+                    if (relation.KeyId == role.Id && relation.RelationType == ERRelationType.RoleUser)
+                    {
+                        odb.Delete(relation);
+                    }
+                }
+
 
                 List<ERRelation> newRelations = new List<ERRelation>();
                 foreach (var user in users)
                 {
                     newRelations.Add(new ERRelation() { Id = Guid.NewGuid(), KeyId = role.Id, ValueId = user.Id, RelationType = ERRelationType.RoleUser });
+                }
+
+                odb.Store(newRelations);
+            }
+        }
+
+        public void RefreshUserRoles(ERUser user, IList<Guid> roleIds)
+        {
+            using (var odb = OdbFactory.Open(dbFileName))
+            {
+                List<ERRelation> relations = odb.AsQueryable<ERRelation>().ToList();
+
+                foreach (var relation in relations)
+                {
+                    if (relation.ValueId == user.Id && relation.RelationType == ERRelationType.RoleUser)
+                    {
+                        odb.Delete(relation);
+                    }
+                }
+
+                List<ERRelation> newRelations = new List<ERRelation>();
+                foreach (var roleId in roleIds)
+                {
+                    newRelations.Add(new ERRelation() { Id = Guid.NewGuid(), KeyId = roleId, ValueId = user.Id, RelationType = ERRelationType.RoleUser });
                 }
 
                 odb.Store(newRelations);

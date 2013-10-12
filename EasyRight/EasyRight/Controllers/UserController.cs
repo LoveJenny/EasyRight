@@ -61,6 +61,7 @@ namespace EasyRight.Controllers
         public ActionResult Edit(Guid id)
         {
             var user = ERRepositry.Instance.GetUserById(id);
+            
             return View(user);
         }
 
@@ -68,11 +69,13 @@ namespace EasyRight.Controllers
         // POST: /User/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(Guid id, ERUser user)
+        public ActionResult Edit(Guid id, ERUser user,List<Guid> roles)
         {
             try
             {
                 ERRepositry.Instance.UpdateUser(user);
+
+                ERRepositry.Instance.RefreshUserRoles(user, roles);
 
                 return RedirectToAction("Index");
             }
