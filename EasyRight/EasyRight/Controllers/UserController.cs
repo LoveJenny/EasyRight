@@ -41,11 +41,12 @@ namespace EasyRight.Controllers
         // POST: /User/Create
 
         [HttpPost]
-        public ActionResult Create(ERUser user)
+        public ActionResult Create(ERUser user, List<Guid> roles)
         {
             try
             {
                 ERRepositry.Instance.AddUser(user);
+                ERRepositry.Instance.RefreshUserRoles(user, roles);
 
                 return RedirectToAction("Index");
             }

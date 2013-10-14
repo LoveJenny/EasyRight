@@ -9,7 +9,7 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table>
+<table class="DefaultTableStyle">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -36,7 +36,7 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @*  @Html.ActionLink("Details", "Details", new { id=item.Id }) | *@
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
             @Html.ActionLink("View Rights", "Index", "Operation", new { rid = item.Id },null)
         </td>

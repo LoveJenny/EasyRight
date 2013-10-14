@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 using System.Xml.Serialization;
 
 namespace EasyRight.Models
@@ -20,6 +21,7 @@ namespace EasyRight.Models
         }
 
         [UIHint("HiddenInput")]
+        [HiddenInput(DisplayValue=false)]
         public Guid Id { get; set; }
 
         public string UserNumber { get; set; }
