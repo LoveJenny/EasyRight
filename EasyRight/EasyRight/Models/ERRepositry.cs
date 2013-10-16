@@ -254,14 +254,16 @@ namespace EasyRight.Models
                         odb.Delete(relation);   
                     }
                 }
-
-                List<ERRelation> newRelations = new List<ERRelation>();
-                foreach (var oper in operations)
+                if (operations != null)
                 {
-                    newRelations.Add(new ERRelation() { Id = Guid.NewGuid(), KeyId = role.Id, ValueId = oper.Id, RelationType = ERRelationType.RoleOperation });
+                    List<ERRelation> newRelations = new List<ERRelation>();
+                    foreach (var oper in operations)
+                    {
+                        newRelations.Add(new ERRelation() { Id = Guid.NewGuid(), KeyId = role.Id, ValueId = oper.Id, RelationType = ERRelationType.RoleOperation });
+                    }
+
+                    odb.Store(newRelations);
                 }
-                
-                odb.Store(newRelations);
             }
         }
 
@@ -279,14 +281,16 @@ namespace EasyRight.Models
                     }
                 }
 
-
-                List<ERRelation> newRelations = new List<ERRelation>();
-                foreach (var user in users)
+                if (users != null)
                 {
-                    newRelations.Add(new ERRelation() { Id = Guid.NewGuid(), KeyId = role.Id, ValueId = user.Id, RelationType = ERRelationType.RoleUser });
-                }
+                    List<ERRelation> newRelations = new List<ERRelation>();
+                    foreach (var user in users)
+                    {
+                        newRelations.Add(new ERRelation() { Id = Guid.NewGuid(), KeyId = role.Id, ValueId = user.Id, RelationType = ERRelationType.RoleUser });
+                    }
 
-                odb.Store(newRelations);
+                    odb.Store(newRelations);
+                }
             }
         }
 
@@ -304,13 +308,16 @@ namespace EasyRight.Models
                     }
                 }
 
-                List<ERRelation> newRelations = new List<ERRelation>();
-                foreach (var roleId in roleIds)
+                if (roleIds != null)
                 {
-                    newRelations.Add(new ERRelation() { Id = Guid.NewGuid(), KeyId = roleId, ValueId = user.Id, RelationType = ERRelationType.RoleUser });
-                }
+                    List<ERRelation> newRelations = new List<ERRelation>();
+                    foreach (var roleId in roleIds)
+                    {
+                        newRelations.Add(new ERRelation() { Id = Guid.NewGuid(), KeyId = roleId, ValueId = user.Id, RelationType = ERRelationType.RoleUser });
+                    }
 
-                odb.Store(newRelations);
+                    odb.Store(newRelations);
+                }
             }
         }
 
