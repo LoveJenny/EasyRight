@@ -34,8 +34,6 @@ namespace EasyRight.Models
         [UIHint("Password")]
         public string Password { get; set; }
 
-        public bool IsEnable { get; set; }
-
         public List<ERRole> GetRoles()
         {
             return ERRepositry.Instance.GetUserRoles(this);
