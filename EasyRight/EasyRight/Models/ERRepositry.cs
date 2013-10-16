@@ -20,7 +20,7 @@ namespace EasyRight.Models
             get { return _instance; }
         }
 
-        private readonly string dbFileName = ConfigurationManager.AppSettings["DBFileName"].ToString();
+        private readonly string dbFileName = HttpContext.Current.Server.MapPath(ConfigurationManager.AppSettings["DBFileName"].ToString());
 
         #region User
 
