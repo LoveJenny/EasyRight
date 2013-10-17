@@ -88,8 +88,10 @@ namespace EasyRight.Controllers
 
         public ActionResult Delete(Guid id)
         {
-            var Role = ERRepositry.Instance.GetRoleById(id);
-            return View(Role);
+            var role = ERRepositry.Instance.GetRoleById(id);
+            ERRepositry.Instance.DeleteRole(role);
+
+            return RedirectToAction("Index");
         }
 
         //

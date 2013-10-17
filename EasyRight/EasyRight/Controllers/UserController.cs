@@ -92,7 +92,9 @@ namespace EasyRight.Controllers
         public ActionResult Delete(Guid id)
         {
             var user = ERRepositry.Instance.GetUserById(id);
-            return View(user);
+            ERRepositry.Instance.DeleteUser(user);
+
+            return RedirectToAction("Index");
         }
 
         //
