@@ -3,9 +3,9 @@
     Layout = null;
 }
 
-<tr>
-    <td>@this.Model.Name</td>
-    <td>
+<ul>
+    <li>@this.Model.Name</li>
+    <li>
         <div class="hidden">
             @Html.EditorFor(x => x.Name)
             @Html.EditorFor(x=>x.TemplateName)
@@ -19,6 +19,6 @@
         {
             @Html.EditorFor(x =>x.Value, this.Model.TemplateName, null)
         }
-    </td>
+    </li>
 
-</tr>
+</ul>

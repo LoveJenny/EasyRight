@@ -50,6 +50,7 @@ header .content-wrapper { padding-top: 20px; }
 
 footer { clear: both; background-color: #e2e2e2; font-size: .8em; height: 100px; }
 
+ul li { list-style-type:none; }
 
 /* site title
 ----------------------------------------------------------*/

@@ -29,17 +29,14 @@
             @Html.ValidationMessageFor(model => model.Properties)
         </div>
         
-        @Html.Action("SelectUserRoles", "Role", new { user = Model });
+        @Html.Action("SelectUserRoles", "Role", new { user = Model })
 
         <p>
             <input type="submit" value="Save" />
+			@Html.ActionLink("Back to List", "Index")
         </p>
     </fieldset>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

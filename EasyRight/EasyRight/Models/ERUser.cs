@@ -40,7 +40,8 @@ namespace EasyRight.Models
         }
 
         private List<ERProperty> _properties = new List<ERProperty>();
-
+		
+		[System.ComponentModel.DataAnnotations.Display(Name="Additional Properties")]
         public List<ERProperty> Properties
         {
             get { return _properties; }
