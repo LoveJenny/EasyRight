@@ -27,7 +27,7 @@
 
 </head>
 <body>
-	<div class="content-wrapper">
+	<div class="content-wrapper ui-helper-clearfix">
 		<div class="float-left">
 			<p class="site-title">@Html.ActionLink("Easy Right", "Index", "Home")</p>
 		</div>
@@ -41,7 +41,19 @@
 		</div>
 	</div>
 	<div id="body">
-		@RenderSection("featured", required: false)
+
+		<section class="featured">
+			<div class="content-wrapper">
+				<hgroup class="title">
+					<h1>Easy Right.</h1>
+					<h2>A Easy Right managerment system.</h2>
+				</hgroup>
+				<p>
+					this should be easy right description.
+				</p>
+			</div>
+		</section>
+
 		<section class="content-wrapper main-content clear-fix">
 			@RenderBody()
 		</section>
